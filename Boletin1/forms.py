@@ -52,6 +52,9 @@ class formulario(forms.Form):
         if len(dias) > 3:
             raise ValidationError("Seleccione no más de tres días de la semana.")
         
+        if fechaInicio > fechaFin:
+            raise ValidationError("La fecha de inicio no puede ser mayor que la fecha final")
+
         if not correoElectronico.endswith("@iesmartinezm.es"):
             raise ValidationError("El correo electrónico debe terminar en '@iesmartinezm.es'.")
 
